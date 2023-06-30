@@ -11,6 +11,14 @@ import coldcut_drums from '../media/logos/coldcut_drums.png';
 import Footer from '../components/elements/Footer';
 import Navbar from '../components/elements/Navbar';
 
+import { useRef, useEffect } from 'react';
+
+import django_logo_yellow from '../media/icons/django-logo-yellow.png';
+import mysql_logo_yellow from '../media/icons/mysql-logo-yellow.png';
+import react_logo_yellow from '../media/icons/react-logo-yellow.png';
+import redux_logo_yellow from '../media/icons/redux-logo-yellow.png';
+
+
 const HomePage = () => {
 
     // Display upcoming show if true:
@@ -52,6 +60,144 @@ const HomePage = () => {
 
 
 
+    const TabInterface = () => {
+
+        const containerRef = useRef(null);
+
+        useEffect(() => {
+            // Make sure the component is mounted
+            if (containerRef.current) {
+                const tabs = containerRef.current.querySelectorAll('.tab');
+                const highlightBox = containerRef.current.querySelector('.highlight-box');
+                const displays = Array.from(containerRef.current.querySelectorAll('.tab-display'));
+
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        // remove the active class from the current active tab
+                        containerRef.current.querySelector('.tab.active').classList.remove('active');
+                        // remove the active class from the current active tab display
+                        containerRef.current.querySelector('.tab-display.active').classList.remove('active');
+                        // add the active class to the clicked tab
+                        tab.classList.add('active');
+                        // add the active class to the corresponding tab display
+                        const index = Array.from(tabs).indexOf(tab);
+                        displays[index].classList.add('active');
+
+
+                        if (tab.classList.contains('active')) { // make sure the tab is still active
+                            // get the position of the clicked tab
+                            const tabRect = tab.getBoundingClientRect();
+                            const containerRect = containerRef.current.getBoundingClientRect();
+                            
+                            // move the highlight box to the clicked tab
+                            highlightBox.style.left = `${tabRect.left - containerRect.left + 16}px`;
+                            // highlightBox.style.top = `${tabRect.top - containerRect.top}px`;
+                            
+                            // adjust the width and height of the highlight box to match the tab
+                            // highlightBox.style.width = `${tabRect.width}px`;
+                            // highlightBox.style.height = `${tabRect.height}px`;
+                        }
+
+                    });
+                
+                    // move the highlight box when the tab has finished transitioning
+                    tab.addEventListener('transitionend', () => {
+                    });
+                });
+                
+                
+                
+            }
+
+        }, []);
+
+        return (
+
+            <div className="tab-interface-container" ref={containerRef}>
+                
+                <div className="tab-interface">
+
+                    <div className="highlight-box"> </div>
+
+                    <div className="blanket"></div>
+
+                    <div className="tabs">
+
+                        <div className="tab" key="tab-interface-tab-1">
+                            <img src={django_logo_yellow}></img>
+
+
+                        </div>    
+
+                        <div className="tab active" key="tab-interface-tab-2">
+                        <img src={react_logo_yellow}></img>
+
+
+                        </div>    
+
+                        <div className="tab" key="tab-interface-tab-3">
+                        <img src={redux_logo_yellow}></img>
+
+
+                        </div>    
+
+                        <div className="tab" key="tab-interface-tab-4">
+                        <img src={mysql_logo_yellow}></img>
+
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <div className="tab-display" key="tab-interface-tab-display-1" data-display="1">
+                        <h1> DJANGO </h1>
+                        <div className="description">
+                            <p>We use <div className="bolded-text">Django</div>, a JavaScript library, to create the user interface for our web applications.</p>
+                        </div>
+                    </div>
+
+                    <div className="tab-display active" key="tab-interface-tab-display-2" data-display="2">
+                        <h1> REACT </h1>
+                        <div className="description">
+                            <p>We use <div className="bolded-text">React</div>, a JavaScript library, to create the user interface for our web applications.</p>
+                        </div>
+                    </div>
+
+                    <div className="tab-display" key="tab-interface-tab-display-3" data-display="3">
+                        <h1> REDUX </h1>
+                        <div className="description">
+                            <p>We use <div className="bolded-text">Redux</div>, a JavaScript library, to create the user interface for our web applications.</p>
+                        </div>
+
+                    </div>
+
+                    <div className="tab-display" key="tab-interface-tab-display-4" data-display="4">
+                        <h1> MYSQL </h1>
+                        <div className="description">
+                            <p>We use <div className="bolded-text">MySQL</div>, a JavaScript library, to create the user interface for our web applications.</p>
+                        </div>
+                    </div>
+                    
+                    
+                </div>    
+
+             </div>
+
+
+        )
+
+
+    }
+
+
+
+
+
+
+
 
     return (
         <Layout title = 'Core Codex | Home' content='Home Page'>
@@ -80,8 +226,13 @@ const HomePage = () => {
                     </div>
 
 
+
+
+
                     </div>
                 </div>
+
+                {TabInterface()}
 
                 <Footer />
 
