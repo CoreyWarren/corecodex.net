@@ -24,7 +24,7 @@ const Navbar = () => {
 
         <li className="nav-item">
             <NavLink className='nav-link' to='https://coldcmerch.com'>
-                CLIENT 1
+                COLD CUT
             </NavLink>
         </li>
 
@@ -41,8 +41,8 @@ const Navbar = () => {
             <div className="navbar-sidesection">
                 <div className="navbar-divider"></div>
                 <div className="navbar-divider-2"></div>
-                <div className="navbar-title-1">• • core &nbsp;• • • • • •</div>
-                <div className="navbar-title-2">• • codex • • • •  • •</div>
+                <div className="navbar-title-1">• • CORE &nbsp;• • • • • •</div>
+                <div className="navbar-title-2">• • CODEX • • • •  • •</div>
                 <div className="navbar-title-3"></div>
                 <div className="navbar-title-4"></div>
             </div>

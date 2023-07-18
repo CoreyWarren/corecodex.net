@@ -131,12 +131,12 @@ footer .footer-bottom span{
     .footer-container {
         flex-direction: column;
         align-items: left;
-        padding: 1%;
+        padding: 0.5rem;
     }
 
     .footer, .footer-spacer{
-        padding-top: 2rem;
-        height: 38rem;
+        padding-top: 0rem;
+        height: 17rem;
     }
 
      footer .footer-content h4{
@@ -196,17 +196,23 @@ footer .footer-bottom span{
         text-align: left;
         right: 0;
         bottom: 0;
-        margin-bottom: 3rem;
+        margin-bottom: 7rem;
+    }
+
+    .footer-content .footer-section.contact{
+        margin: 0;
+        padding: auto;
     }
 
     .footer-content .footer-section.contact p {
         text-align: left!important;
         margin-left: 0;
         margin-right: 0;
-        margin-top: 0.8rem;
+        margin-top: 0.3rem;
         padding: 0;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
+
 
     footer .footer-bottom span{
         text-align: left;
@@ -214,13 +220,12 @@ footer .footer-bottom span{
 
     .back-to-top {
         position: absolute;
-        width: 55vw;
+        width: 94%;
         bottom: 1rem;
-        left: auto;
-        background: #242424;
+        background: #4e554d;
         color: #ffffff;
         text-align: center;
-        border-radius: 1rem;
+        border-radius: 0.2rem;
         height: 5rem;
         margin-top: auto;
         padding: 5px 10px;

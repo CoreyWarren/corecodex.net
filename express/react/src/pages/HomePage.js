@@ -155,21 +155,21 @@ const HomePage = () => {
                     <div className="tab-display" key="tab-interface-tab-display-1" data-display="1">
                         <h1> DJANGO </h1>
                         <div className="description">
-                            <p>We use <div className="bolded-text">Django</div>, a JavaScript library, to create the user interface for our web applications.</p>
+                            <p>We use <div className="bolded-text">DJANGO</div>, a Python Web Framework. This allows us to access a database, create APIs, and overall supplement a backend to do server-side calculations and search queries.</p>
                         </div>
                     </div>
 
                     <div className="tab-display active" key="tab-interface-tab-display-2" data-display="2">
                         <h1> REACT </h1>
                         <div className="description">
-                            <p>We use <div className="bolded-text">React</div>, a JavaScript library, to create the user interface for our web applications.</p>
+                            <p>We use <div className="bolded-text">REACT</div>, a JavaScript library, to create the user interface for our web applications.</p>
                         </div>
                     </div>
 
                     <div className="tab-display" key="tab-interface-tab-display-3" data-display="3">
                         <h1> REDUX </h1>
                         <div className="description">
-                            <p>We use <div className="bolded-text">Redux</div>, a JavaScript library, to create the user interface for our web applications.</p>
+                            <p>We use <div className="bolded-text">REDUX</div>, a React/Node.js-based State Container for Web Apps. It makes handling front-end state changes (User Interface, Client-Side Storage, Navigation) easier by making them more debuggable.</p>
                         </div>
 
                     </div>
@@ -177,7 +177,7 @@ const HomePage = () => {
                     <div className="tab-display" key="tab-interface-tab-display-4" data-display="4">
                         <h1> MYSQL </h1>
                         <div className="description">
-                            <p>We use <div className="bolded-text">MySQL</div>, a JavaScript library, to create the user interface for our web applications.</p>
+                            <p>We use <div className="bolded-text">MYSQL</div>, a database management system, which allows computers and servers, which are already good at handling big databases, to query and serve data to your web app from the backend.</p>
                         </div>
                     </div>
                     
