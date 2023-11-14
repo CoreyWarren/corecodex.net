@@ -204,8 +204,12 @@ footer .footer-bottom span{
         padding: auto;
     }
 
+    .footer-content .footer-section.contact h4{
+        text-align: center;
+    }
+
     .footer-content .footer-section.contact p {
-        text-align: left!important;
+        text-align: center!important;
         margin-left: 0;
         margin-right: 0;
         margin-top: 0.3rem;
@@ -215,23 +219,31 @@ footer .footer-bottom span{
 
 
     footer .footer-bottom span{
-        text-align: left;
+        text-align: center;
     }
 
-    .back-to-top {
-        position: absolute;
-        width: 94%;
-        bottom: 1rem;
-        background: #4e554d;
-        color: #ffffff;
-        text-align: center;
-        border-radius: 0.2rem;
+    .footer-container button.back-to-top {
+        display: block;
+        width: 90%;
         height: 5rem;
-        margin-top: auto;
-        padding: 5px 10px;
-        font-size: 16px;
-        border: none;
+
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        margin: auto;
+    
+        background: #241f0793;
+        color: #ffffff;
+        border-radius: 0.2rem;
+        border: 2px solid rgba(65, 0, 0, 0.205)!important;
+    
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 600;
+    
         cursor: pointer;
+        transition: 0.1s hover;
+    
     }
 
 
