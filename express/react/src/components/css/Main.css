@@ -783,26 +783,6 @@ p, a, h1, h2, h3{
     min-height: 100vh;
     }
 
-
-    .background-rotate{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-repeat: repeat;
-        background-size: 110%;
-        background-position: center top;
-        transform: rotate(0);
-        min-height: 100vh;
-        z-index: -1;
-    }
-
-    
-
-
-
     nav.navbar.navbar-expand-lg.bg-dark{
         max-width: 100%;
     }
@@ -817,16 +797,38 @@ p, a, h1, h2, h3{
         width: 2rem;
     }
 
+    ul.navbar-nav{
+        margin: 0!important;
+        margin-left: 1.5rem!important;
+        padding: 0!important;
+        width: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
     ul.navbar-nav li.nav-item a{
         font-size: 2rem;
-        margin-left: 10%;
-        line-height: 2.5rem;
+        padding: 0rem;
+        line-height: 2rem;
+        text-align: left;
     }
 
-    #logout{
-        position: relative;
+    button.navbar-toggler{
+        padding: 0;
+        margin: 1.5rem;
     }
 
+    nav.navbar .container-fluid{
+        padding: 0!important;
+        margin: 0!important;
+
+    }
+
+    #navbarNav.navbar-collapse.collapse{
+        height: 3rem!important;
+        margin: 0.25rem 0!important;
+    }
+    
 
     .container.mt-5 h1 {
         text-align: center;
@@ -918,7 +920,7 @@ p, a, h1, h2, h3{
 
     .container.mt-5 .big-title-container .tagline p{
         text-align: center;
-        margin: auto 1rem 0.5rem 1rem;
+        margin: auto 1rem 0.75rem 1rem;
         font-size: 1.4rem;
     }
 
@@ -951,7 +953,7 @@ p, a, h1, h2, h3{
     
     .tab-interface .blanket{
         position: absolute;
-        width: 100vw;
+        width: 120%;
         height: 5.5rem;
         margin-top: 2.5vh;
         background: linear-gradient(180deg, rgba(43, 42, 40, 0.8) 0%, rgba(48, 27, 27, 0.466)) 100%;
@@ -964,11 +966,11 @@ p, a, h1, h2, h3{
         display: inline-block;
         width: 4rem;
         margin: auto;
-        margin-top: 3.5vh;
+        margin-top: 1.5rem;
         min-height: 5rem;
         border-radius: 0.5rem;
         filter: saturate(0%);
-        opacity: 80%;
+        opacity: 60%;
         z-index: 2;
     }
     
@@ -978,6 +980,7 @@ p, a, h1, h2, h3{
         width: 4rem;
         min-height: 5rem;
         margin: auto;
+        margin-top: 1.5rem;
         filter: saturate(100%);
         z-index: 2;
         opacity: 100%;
@@ -1004,16 +1007,7 @@ p, a, h1, h2, h3{
     }
     
     .tab-interface .highlight-box{
-        position: absolute;
-        left: 26.5%;
-        width: 4rem;
-        margin-top: 1rem;
-        min-height: 10vh;
-        border: 0.2rem solid rgb(255, 255, 255);
-        border-radius: 0.5rem;
-        transition: left 0.3s ease-out;
-        z-index: 10;
-    
+        display: none;
     }
     
     .tab-interface .tab-display{
