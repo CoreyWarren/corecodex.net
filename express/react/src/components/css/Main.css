@@ -525,8 +525,8 @@ p, a, h1, h2, h3{
 
 .tab-interface{
     display: block;
-    margin-left: -2rem;
-    margin-right: -2rem;
+    margin-left: -4rem;
+    margin-right: 10rem;
     width: calc(100%);
 }
 
@@ -534,6 +534,7 @@ p, a, h1, h2, h3{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    padding-left: 3rem;
 }
 
 .tab-interface .blanket{
