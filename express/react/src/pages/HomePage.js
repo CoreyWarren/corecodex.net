@@ -33,6 +33,44 @@ const HomePage = () => {
                 const highlightBox = containerRef.current.querySelector('.highlight-box');
                 const displays = Array.from(containerRef.current.querySelectorAll('.tab-display'));
 
+                // upon page load, move the highlight box to the active tab
+                const activeTab = containerRef.current.querySelector('.tab.active');
+                const activeTabRect = activeTab.getBoundingClientRect();
+                const containerRect = containerRef.current.getBoundingClientRect();
+                highlightBox.style.left = `${activeTabRect.left - containerRect.left + 16}px`;
+
+                // check every so often to make sure it's aligned (like when a window is resized)
+                // but, only do so when a window is resized, or a few seconds after the page loads
+                // (check 5 times after page loads, then check every 250ms)
+                let checkCount = 0;
+                const checkInterval = setInterval(() => {
+                    const activeTab = containerRef.current.querySelector('.tab.active');
+                    const activeTabRect = activeTab.getBoundingClientRect();
+                    const containerRect = containerRef.current.getBoundingClientRect();
+                    highlightBox.style.left = `${activeTabRect.left - containerRect.left + 16}px`;
+                    highlightBox.style.width = `${activeTabRect.width}px`;
+                    checkCount++;
+                    if (checkCount > 15) {
+                        clearInterval(checkInterval);
+                        setInterval(() => {
+                            const activeTab = containerRef.current.querySelector('.tab.active');
+                            const activeTabRect = activeTab.getBoundingClientRect();
+                            const containerRect = containerRef.current.getBoundingClientRect();
+                            highlightBox.style.left = `${activeTabRect.left - containerRect.left + 16}px`;
+                            highlightBox.style.width = `${activeTabRect.width}px`;
+                        }, 500);
+                    }
+                }, 250);
+
+                // the above could be improved by switching 
+
+
+
+
+
+                
+
+
 
                 tabs.forEach(tab => {
                     tab.addEventListener('click', () => {
@@ -57,7 +95,7 @@ const HomePage = () => {
                             // highlightBox.style.top = `${tabRect.top - containerRect.top}px`;
                             
                             // adjust the width and height of the highlight box to match the tab
-                            // highlightBox.style.width = `${tabRect.width}px`;
+                            highlightBox.style.width = `${tabRect.width}px`;
                             // highlightBox.style.height = `${tabRect.height}px`;
                         }
 
@@ -67,6 +105,25 @@ const HomePage = () => {
                     tab.addEventListener('transitionend', () => {
                     });
                 });
+
+
+                // Support highlight box animations for each tab.
+                document.querySelectorAll('.tab').forEach(tab => {
+                    tab.addEventListener('click', function() {
+                      const highlightBox = document.querySelector('.tab-interface .highlight-box');
+                      // after a delay of 200ms, add the animate class to the highlight box:
+                        setTimeout(() => {
+                            highlightBox.classList.add('animate');
+                        }, 220);
+
+                            
+                  
+                      // Optionally remove the class after animation ends
+                      highlightBox.addEventListener('animationend', () => {
+                        highlightBox.classList.remove('animate');
+                      });
+                    });
+                  });
                 
                 
                 
@@ -87,26 +144,32 @@ const HomePage = () => {
                     <div className="tabs">
 
                         <div className="tab" key="tab-interface-tab-1">
+                            <div className="tab-image">
                             <img src={django_logo_yellow}></img>
+                            </div>
 
 
                         </div>    
 
                         <div className="tab active" key="tab-interface-tab-2">
-                        <img src={react_logo_yellow}></img>
+                            <div className="tab-image">
+                            <img src={react_logo_yellow}></img>
+                            </div>
 
 
                         </div>    
 
                         <div className="tab" key="tab-interface-tab-3">
-                        <img src={redux_logo_yellow}></img>
-
+                            <div className="tab-image">
+                            <img src={redux_logo_yellow}></img>
+                            </div>
 
                         </div>    
 
                         <div className="tab" key="tab-interface-tab-4">
-                        <img src={mysql_logo_yellow}></img>
-
+                            <div className="tab-image">
+                            <img src={mysql_logo_yellow}></img>
+                            </div>
 
                         </div>
 
