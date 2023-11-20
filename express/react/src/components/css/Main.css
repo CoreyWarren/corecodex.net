@@ -733,8 +733,8 @@ animation: pulseAnimation2 0.2s ease-out;
 .tab-interface .tab-display .description li {
     padding-right: 0;
     display: inline-block;
-    font-size: 1.5rem;
-    line-height: 2.6rem;
+    font-size: 1.3rem;
+    line-height: 2rem;
     color: #f0ffff; /* Dark slate gray for readability */
 }
 
@@ -742,7 +742,7 @@ animation: pulseAnimation2 0.2s ease-out;
 .tab-interface .tab-display li .bolded-text {
     font-weight: bold;
     color: #ffba27; /* Teal for highlighted text */
-    font-size: 3rem;
+    font-size: 2rem;
     display: inline-block;
 }
 
@@ -1177,8 +1177,8 @@ animation: pulseAnimation2 0.2s ease-out;
         padding-left: 0.5rem;
         padding-right: 0.1rem;
         display: block;
-        font-size: 1.1rem;
-        line-height: 1.3rem;
+        font-size: 1rem;
+        line-height: 1.2rem;
         color: rgb(255, 255, 255);
     }
     
