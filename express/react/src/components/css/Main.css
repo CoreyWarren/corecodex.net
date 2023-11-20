@@ -15,9 +15,19 @@
     min-height: 100vh;
 }
 
-.container.mt-5{
+.coco-mt-5{
     min-width: 70vw!important;
+    width: 1100px!important;
     padding: 0!important;
+    margin: auto!important;
+}
+
+@media (max-width: 1200px) {
+    .coco-mt-5 {
+        min-width: 70vw!important;
+        width: 1100px!important;
+        padding: 0!important;
+    }
 }
 
 .background-container{
@@ -77,7 +87,7 @@ nav,
     
 }
 
-.container.mt-5 nav{
+.coco-mt-5 nav{
     background-color: rgba(255, 255, 255, 0)!important;
     border: 2px solid rgba(65, 0, 0, 0.205)!important;
     border-radius: 0.2rem;
@@ -278,6 +288,7 @@ p, a, h1, h2, h3{
     background-color: rgb(241, 81, 75);
     position: relative;
     border-radius: 0.2rem;
+    z-index: 1;
 }
 
 .large-grid-item{
@@ -368,18 +379,32 @@ p, a, h1, h2, h3{
     padding: 0;
 }
 
-.home-page-panel .big-title-container .big-title-decos-1,
-.home-page-panel .big-title-container .big-title-decos-2,
-.home-page-panel .big-title-container .big-title-decos-3,
-.home-page-panel .big-title-container .big-title-decos-4,
-.home-page-panel .big-title-container .big-title-decos-5
+.home-page-panel .big-title-container .bt-decos-container{
+    /* center this div, and center is children within it*/
+    margin: auto;
+    padding: auto;
+    margin-left: -5rem;
+    display: block;
+    width: 100%;
+    height: auto;
+
+}
+
+.home-page-panel .big-title-container .bt-decos-1,
+.home-page-panel .big-title-container .bt-decos-2,
+.home-page-panel .big-title-container .bt-decos-3,
+.home-page-panel .big-title-container .bt-decos-4,
+.home-page-panel .big-title-container .bt-decos-5
 {
+    display: block;
     color: white;
     font-family: 'Courier New', Courier, monospace;
-    margin-left: -0.5vw;
     font-size: 1.5vw;
     letter-spacing: -3px;
     line-height: 0.5;
+    margin: auto;
+    padding: auto;
+    text-align: center;
 }
 
 .home-page-panel img.big-logo{
@@ -439,11 +464,39 @@ p, a, h1, h2, h3{
     margin-bottom: 2rem!important;
     background-color: rgb(255, 255, 255);
     border-radius: 0.2rem;
+    z-index: -15;
     /*make a box shadow that fades from its purple color to transparent, so it blends with its parent container*/
     /* like the above, but it should fade from purple to white */
 }
 
 
+
+.particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Ensures click events pass through to elements below */
+}
+
+.particle {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 5%;
+    animation: floaty linear infinite;
+    opacity: 0; /* Start invisible for fade-in effect */
+    z-index: -1;
+    transform: rotate(30deg);
+}
+
+@keyframes floaty {
+    0% { transform:  translateY(2.5rem) translateX(10rem) rotate(10deg);; opacity: 0.2; }
+    50% { transform:   translateY(5rem)  translateX(20rem) rotate(10deg);  opacity: 0; }
+    51% { transform:   translateY(0)  translateX(0rem) rotate(10deg); opacity: 0; }
+    100% { transform:    translateY(2.5rem)  translateX(10rem) rotate(10deg);; opacity: 0.2; }
+}
 
 
 
@@ -545,7 +598,7 @@ p, a, h1, h2, h3{
     background: linear-gradient(180deg, rgba(43, 42, 40, 0.8) 0%, rgba(48, 27, 27, 0.466)) 100%;
     box-shadow: 0px 0px 10px 10px rgba(148, 55, 55, 0.5);
     border-radius: 0.5rem;
-    z-index: 0;
+    z-index: 2;
 }
 
 .tab-interface .tab {
@@ -574,13 +627,6 @@ p, a, h1, h2, h3{
     opacity: 100%;
 }
 
-/* opposite of mobile css (desktop css): */
-@media (min-width: 991px){
-
-
-
-
-}
 
 .tab-interface .tab .tab-image{
     padding: 1rem;
@@ -678,7 +724,7 @@ animation: pulseAnimation2 0.2s ease-out;
     display: inline-block;
     width: 100%;
     margin: auto;
-    padding: 0 5rem;
+    padding: 0 5rem 0 3rem;
     vertical-align: center;
     color: #2f4f4f; /* Dark slate gray for text */
 }
@@ -695,7 +741,7 @@ animation: pulseAnimation2 0.2s ease-out;
 .tab-interface .tab-display p .bolded-text,
 .tab-interface .tab-display li .bolded-text {
     font-weight: bold;
-    color: #008080; /* Teal for highlighted text */
+    color: #ffba27; /* Teal for highlighted text */
     font-size: 3rem;
     display: inline-block;
 }
@@ -814,11 +860,18 @@ animation: pulseAnimation2 0.2s ease-out;
 */
 
 
-@media (max-width: 991px){
+@media (max-width: 1119px){
 
     #root
     {
     min-height: 100vh;
+    }
+
+    .coco-mt-5{
+        min-width: 70vw!important;
+        width: auto!important;
+        padding: 0!important;
+        margin: auto!important;
     }
 
     nav.navbar.navbar-expand-lg.bg-dark{
@@ -868,7 +921,7 @@ animation: pulseAnimation2 0.2s ease-out;
     }
     
 
-    .container.mt-5 h1 {
+     .coco-mt-5 h1 {
         text-align: center;
         font-weight: 800;
         font-size: 3.5rem;
@@ -886,13 +939,13 @@ animation: pulseAnimation2 0.2s ease-out;
 
     /* login and register buttons */
 
-    form.mt-5{
+    form.coco-mt-5{
         width: 100%;
         padding: 1rem;
         max-width: 95vw;
     }
 
-    form.mt-5 .btn.btn-primary.mt-4 {
+    form.coco-mt-5 .btn.btn-primary.mt-4 {
         margin-left: 20%;
         width: 60%!important;
         margin-right: 25%;
@@ -938,34 +991,58 @@ animation: pulseAnimation2 0.2s ease-out;
 
     .home-page-panel .big-title-container .big-title h1{
         text-align: center!important;
-        line-height: 1rem;
+        line-height: 3rem;
+        font-size: clamp(2vw, 7rem, 20vw)!important;
+        letter-spacing: default;
     }
 
-    .home-page-panel .big-title-container .big-title-decos-1,
-    .home-page-panel .big-title-container .big-title-decos-2,
-    .home-page-panel .big-title-container .big-title-decos-3,
-    .home-page-panel .big-title-container .big-title-decos-4,
-    .home-page-panel .big-title-container .big-title-decos-5
+    .home-page-panel .big-title-container .bt-decos-container{
+        /* center this div */
+        margin: auto;
+        padding: auto;
+        display: block;
+        width: 100%;
+        height: auto;
+        /* if this does not center it, then that means */
+        /* the parent div is not centered */
+
+        /* center all children */
+        display: block;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .home-page-panel .big-title-container .bt-decos-1,
+    .home-page-panel .big-title-container .bt-decos-2,
+    .home-page-panel .big-title-container .bt-decos-3,
+    .home-page-panel .big-title-container .bt-decos-4,
+    .home-page-panel .big-title-container .bt-decos-5
     {
+        display: block;
         color: white;
         font-family: 'Courier New', Courier, monospace;
-        margin-left: -0.5vw;
-        font-size: 1rem;
-        letter-spacing: -0.16rem;
-        line-height: 0.5rem;
-        margin-left: 7.45rem;
+        font-size: 1.6rem;
+        letter-spacing: -0.2rem;
+        line-height: 0.75rem;
+        margin: auto;
+        padding: auto;
     }
 
-    .container.mt-5 .big-title-container .tagline p{
-        text-align: center;
-        margin: auto 1rem 0.75rem 1rem;
-        font-size: 1.4rem;
+     .coco-mt-5 .big-title-container .tagline p{
+        text-align: center!important;
+        font-size: 2rem;
+        line-height: 2rem;
+        text-align: center!important;
+        margin: auto;
     }
 
-    .container.mt-5 .big-title-container .tagline{
+     .coco-mt-5 .big-title-container .tagline{
         margin: auto;
         padding-bottom: 1rem;
         padding-top: 1rem;
+        display: block;
+        text-align: center;
     }
 
     .tab-interface-container{
@@ -976,7 +1053,7 @@ animation: pulseAnimation2 0.2s ease-out;
     
     .tab-interface{
         display: block;
-        margin-left: -2rem;
+        margin-left: -13vw;
         margin-right: 0rem;
         width: calc(100% + 4rem);
     }
@@ -988,6 +1065,7 @@ animation: pulseAnimation2 0.2s ease-out;
         height: 5.5rem;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+        padding: auto;
     }
     
     .tab-interface .blanket{
@@ -1084,17 +1162,13 @@ animation: pulseAnimation2 0.2s ease-out;
         padding: 0;
         padding-bottom: 2rem;
         padding-top: 2rem;
-        font-family: 'Courier New', Courier, monospace;
-        background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255)) 100%;
-        background: transparent;
-        border: 0.2rem solid rgba(0, 0, 0, 0.384);
-        box-shadow: 0px 0px 15px rgb(148, 55, 55);
     }
     
     .tab-interface .tab-display .description{
         display: block;
-        width: 90%;
-        margin: auto;
+        width: 100%;
+        margin: 0;
+        padding: 1.5rem;
     }
     
     .tab-interface .tab-display .description p,
@@ -1236,7 +1310,7 @@ animation: pulseAnimation2 0.2s ease-out;
         border-radius: 1rem;
     }
 
-    .container.mt-5{
+    .coco-mt-5{
         max-width: 100vw;
         margin: auto;
         padding: 0;

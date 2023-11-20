@@ -24,7 +24,7 @@ const Layout = ({ title, content, children}) => (
         </Helmet>
 
 
-        <div className='container mt-5'>
+        <div className='coco-mt-5'>
             {children}
 
         </div>

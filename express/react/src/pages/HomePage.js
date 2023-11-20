@@ -215,6 +215,74 @@ const HomePage = () => {
 
 
 
+    const RandomParticlesDisplay = () => {
+
+        const containerRef = useRef(null);
+
+        useEffect(() => {
+
+        if(containerRef.current) {
+            const container = containerRef.current;
+            const numberOfParticles = 30; // Adjust as needed
+    
+            for (let i = 0; i < numberOfParticles; i++) {
+                let particle = document.createElement('div');
+                particle.className = 'particle';
+    
+                // Random size between 10px and 30px
+                let my_width = Math.random() * 250 + 5; 
+                let my_height = Math.random() * 4 + 2; 
+                particle.style.width = `${my_width}px`;
+                particle.style.height = `${my_height}px`;
+    
+                // Random position within the container
+                particle.style.left = `${Math.random() * 100 - 20}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+    
+                // Random animation duration between 3s and 8s
+                particle.style.animationDuration = `${Math.random() * 6 + Math.random() * 6 + Math.random() * 6}s`;
+
+                const max_opacity = `${Math.random() * 25 + 10}%`;
+    
+                // Add inline style for keyframes with randomized opacity
+                const keyframes = `
+                @keyframes floaty-${i} {
+                    0% { transform: translateY(2.5rem) translateX(10rem) rotate(15deg); opacity: ${max_opacity}; }
+                    50% { transform: translateY(5rem) translateX(20rem) rotate(15deg); opacity: 0; }
+                    51% { transform: translateY(0) translateX(0rem) rotate(15deg); opacity: 0; }
+                    100% { transform: translateY(2.5rem) translateX(10rem) rotate(15deg); opacity: ${max_opacity}; }
+                }
+                `;
+                const styleSheet = document.createElement("style")
+                styleSheet.innerText = keyframes;
+                document.head.appendChild(styleSheet);
+
+                particle.style.animationName = `floaty-${i}`;
+
+                container.appendChild(particle);
+        }
+
+        return () => {
+            // Cleanup: remove all particles and dynamically created styles when the component unmounts
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+            const createdStyles = document.querySelectorAll('style');
+            createdStyles.forEach(style => {
+                if (style.innerText.includes('@keyframes floaty-')) {
+                    document.head.removeChild(style);
+                }
+            });
+        };
+
+        }
+
+        }, []);
+    
+        return (
+            <div className="particle-container" id="particleContainer" ref={containerRef}></div>
+        );
+    };
 
 
 
@@ -229,14 +297,21 @@ const HomePage = () => {
 
                 <Navbar />
 
+
+
+                <RandomParticlesDisplay />
+
                 <img className="big-logo" src={cc_logo} alt=""/>
                 <div className="big-title-container" alt="fancy big title that says 'Core Codex'">
                     <div className="big-title">
-                    <div className="big-title-decos-1">•&nbsp;&nbsp;&nbsp;&nbsp;•</div>
-                    <div className="big-title-decos-2">••&nbsp;&nbsp;••</div>
-                    <div className="big-title-decos-3">••&nbsp;&nbsp;••</div>
-                    <div className="big-title-decos-4">&nbsp;••••</div>
-                    <div className="big-title-decos-3">&nbsp;&nbsp;••</div>
+
+                    <div className="bt-decos-container">
+                    <div className="bt-decos-1">•&nbsp;&nbsp;&nbsp;&nbsp;•</div>
+                    <div className="bt-decos-2">••&nbsp;&nbsp;••</div>
+                    <div className="bt-decos-3">••&nbsp;&nbsp;••</div>
+                    <div className="bt-decos-4">••••</div>
+                    <div className="bt-decos-3">••</div>
+                    </div>
                     
                     <h1>CORE</h1>
                     <h1>CODEX</h1>
@@ -245,6 +320,9 @@ const HomePage = () => {
                         <p style={{fontWeight:"bold"}}>POWERFUL.</p>
                         <p>WEBSITES.</p>
                     </div>
+
+
+
 
 
 
